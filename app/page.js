@@ -1,11 +1,13 @@
 "use client";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
 export default function Home() {
+  const router = useRouter();
   const [Title, setTitle] = useState("");
-  const [Rounds, setRounds] = useState("one");
+  const [Rounds, setRounds] = useState("four");
   console.log(Title);
   console.log(Rounds);
 
@@ -13,6 +15,11 @@ export default function Home() {
     const body = { prompt: Title, number: Rounds };
     const response = await axios.post("api/createBracket", body);
     console.log(response);
+
+    if (response.status == 201) {
+      const data = response.data.content;
+      router.push(`/brackets?data=${data}`);
+    }
   };
 
   return (
@@ -43,10 +50,10 @@ export default function Home() {
             class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             onChange={(e) => setRounds(e.target.value)}
           >
-            <option value="one">4</option>
-            <option value="two">8</option>
-            <option value="three">16</option>
-            <option value="four">32</option>
+            <option value="four">4</option>
+            <option value="eight">8</option>
+            <option value="sixteen">16</option>
+            <option value="thirtytwo">32</option>
           </select>
         </div>
       </div>
