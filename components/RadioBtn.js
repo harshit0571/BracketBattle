@@ -1,6 +1,6 @@
 const RadioBtn = () => {
   return (
-    <main class="grid place-items-center">
+    <main class="grid min-h-screen w-full place-items-center">
       <div class="grid w-[40rem] grid-cols-4 gap-2 rounded-xl bg-gray-200 p-2">
         <div>
           <input

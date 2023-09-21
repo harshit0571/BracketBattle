@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { useState } from "react";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
   const [Rounds, setRounds] = useState("one");
   console.log(Title);
   console.log(Rounds);
+
   return (
     <main className="flex flex-col gap-10 justify-center items-center w-full h-full">
       <h1 className="text-7xl font-bold text-center text-blue-600 mt-8">
