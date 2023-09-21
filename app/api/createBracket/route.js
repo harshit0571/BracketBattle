@@ -1,27 +1,33 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.NEXT_PUBLIC_OPENAIKEY,
+});
+
 export const POST = async (req, res) => {
   if (req.method === "POST") {
-    const { prompt } = req.body;
+    const body = await req.json();
+
     const apiKey = process.env.NEXT_PUBLIC_OPENAIKEY;
-    const apiUrl = "https://api.openai.com/v1/engines/davinci/completions"; // Adjust the endpoint as needed
+    const apiUrl = "https://api.openai.com/v1/completions"; // Adjust the endpoint as needed
 
     try {
-      const response = await axios.post(
-        apiUrl,
-        {
-          prompt,
-          max_tokens: 50, // You can adjust this value
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
+      const response = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `Generate a list of ${body.number}, ${body.prompt} separated by commas: "item1, item2, item3"
+            `,
           },
-        }
-      );
+        ],
+      });
 
-      const { data } = response;
+      const data = response.choices[0].message;
+      console.log(data);
       return new NextResponse(JSON.stringify(data), {
         status: 201,
         headers: { "Content-Type": "application/json" },
