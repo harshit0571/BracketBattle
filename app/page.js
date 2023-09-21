@@ -1,6 +1,6 @@
 "use client";
-
 import axios from "axios";
+
 import { useState } from "react";
 
 export default function Home() {
@@ -8,6 +8,12 @@ export default function Home() {
   const [Rounds, setRounds] = useState("one");
   console.log(Title);
   console.log(Rounds);
+
+  const getBrackets = async () => {
+    const body = { prompt: Title, number: Rounds };
+    const response = await axios.post("api/createBracket", body);
+    console.log(response);
+  };
 
   return (
     <main className="flex flex-col gap-10 justify-center items-center w-full h-full">
@@ -21,7 +27,10 @@ export default function Home() {
           placeholder="eg: kanye west songs"
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md"
+          onClick={getBrackets}
+        >
           Start
         </button>
       </div>

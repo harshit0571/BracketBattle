@@ -15,6 +15,7 @@ export const POST = async (req, res) => {
     const apiUrl = "https://api.openai.com/v1/completions"; // Adjust the endpoint as needed
 
     try {
+      console.log(body.prompt);
       const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
