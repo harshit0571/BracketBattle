@@ -15,7 +15,7 @@ const BracketPage = () => {
   const [firstHalf, secondHalf] = splitArrayInHalf(values);
 
   const array = MapBothSides(firstHalf, secondHalf);
-  console.log(array);
+  console.log(values, firstHalf, secondHalf);
 
   return (
     <div className="w-full font-sans justify-center items-center flex flex-col">
@@ -25,7 +25,7 @@ const BracketPage = () => {
       <p className="text-center text-3xl mt-1 text-gray-400">
         bracket-battle.com
       </p>
-      <div className="flex flex-col w-full md:w-[98%] gap-5">
+      <div className="flex flex-col bg-black h-[700px] w-full overflow-auto scroll-m-0 md:w-[98%] gap-5">
         {array.map((node) => {
           return node;
         })}
