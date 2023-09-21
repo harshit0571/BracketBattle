@@ -18,7 +18,7 @@ export default function Home() {
 
     if (response.status == 201) {
       const data = response.data.content;
-      router.push(`/brackets?data=${data}`);
+      router.push(`/brackets?data=${data}&title=${Title}`);
     }
   };
 

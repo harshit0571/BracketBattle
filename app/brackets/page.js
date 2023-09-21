@@ -8,6 +8,7 @@ const BracketPage = () => {
   const searchParams = useSearchParams();
 
   const search = searchParams.get("data");
+  const title = searchParams.get("title");
 
   const values = search.split(",");
 
@@ -17,11 +18,21 @@ const BracketPage = () => {
   console.log(array);
 
   return (
-    <div className="w-full bg-zinc-700">
-      here is the data:
-      {array.map((node) => {
-        return node;
-      })}
+    <div className="w-full font-sans justify-center items-center flex flex-col">
+      <h1 className="text-6xl font-bold text-center text-blue-600 ">
+        {title} Bracket
+      </h1>
+      <p className="text-center text-3xl mt-1 text-gray-400">
+        bracket-battle.com
+      </p>
+      <div className="flex flex-col w-full md:w-[98%] gap-5">
+        {array.map((node) => {
+          return node;
+        })}
+      </div>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md mt-20">
+        Start
+      </button>
     </div>
   );
 };
