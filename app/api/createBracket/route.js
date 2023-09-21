@@ -21,7 +21,7 @@ export const POST = async (req, res) => {
         messages: [
           {
             role: "user",
-            content: `Generate a list of ${body.number}, ${body.prompt} separated by commas: "item1, item2, item3"
+            content: `Generate a list of ${body.number}, ${body.prompt} separated by commas: "item1, item2, item3" note:only give items separeted by commas, not numbers 
             `,
           },
         ],
