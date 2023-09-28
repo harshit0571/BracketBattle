@@ -1,12 +1,28 @@
 import BracketValue from "./BracketValue";
 
-const GameRound = ({ first, second }) => {
+const GameRound = ({ first, second, setWinner, setNumber, Number }) => {
   return (
     <div className="w-full flex justify-center ">
       <div className="flex justify-around w-[80%] items-center">
-        <BracketValue value={first} />
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            setWinner(first);
+            setNumber(Number + 2);
+          }}
+        >
+          <BracketValue value={first} />
+        </div>
         <p>vs</p>
-        <BracketValue value={second} />
+        <div
+          className="cursor-pointer"
+          onClick={() => {
+            setWinner(second);
+            setNumber(Number + 2);
+          }}
+        >
+          <BracketValue value={second} />
+        </div>
       </div>
     </div>
   );
