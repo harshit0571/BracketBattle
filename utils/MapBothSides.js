@@ -29,5 +29,5 @@ export default function MapBothSides(firstHalf, secondHalf) {
     i++;
     array.push(node);
   }
-  return array;
+  return  array;
 }

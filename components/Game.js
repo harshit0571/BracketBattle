@@ -1,27 +1,18 @@
 "use client";
 import { useState } from "react";
+import GameRound from "./GameRound";
 
 export const BracketGame = ({ data }) => {
   let val = data;
   const [Round, setRound] = useState(0);
   const [Number, setNumber] = useState(0);
-
   return (
-    <div>
-      <h1>Round 1</h1>
-      {Number == val.length - 1 ? (
-        Round < val.length ? (
-          setNumber(Number + 1)
-        ) : (
-          <div>Game over</div>
-        )
+    <div className="w-full bg-red-100 flex">
+      {Number < val.length - 1 ? (
+        <GameRound first={val[Number]} second={val[Number + 1]} />
       ) : (
-        <div>{val[Number]}</div>
+        console.log(Number)
       )}
     </div>
   );
-};
-
-const GameRound = () => {
-  return <div>Hello</div>;
 };
