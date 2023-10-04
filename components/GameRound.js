@@ -7,7 +7,7 @@ const GameRound = ({ first, second, setWinner, setNumber, Number }) => {
         <div
           className="cursor-pointer"
           onClick={() => {
-            setWinner(first);
+            setWinner((winner) => [...winner, first]);
             setNumber(Number + 2);
           }}
         >
@@ -17,7 +17,7 @@ const GameRound = ({ first, second, setWinner, setNumber, Number }) => {
         <div
           className="cursor-pointer"
           onClick={() => {
-            setWinner(second);
+            setWinner((winner) => [...winner, second]);
             setNumber(Number + 2);
           }}
         >
