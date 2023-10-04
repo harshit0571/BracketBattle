@@ -30,7 +30,7 @@ const BracketPage = () => {
       </p>
       {Game ? (
         <div className="flex flex-col h-[700px] justify-center items-center w-full overflow-auto scroll-m-0 md:w-[98%] gap-5">
-          <BracketGame data={values} />
+          <BracketGame data={values} title={title} />
         </div>
       ) : (
         <div className="flex flex-col bg-black h-[700px] w-full overflow-auto scroll-m-0 md:w-[98%] gap-5">

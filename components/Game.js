@@ -1,12 +1,15 @@
 "use client";
 import { useState } from "react";
 import GameRound from "./GameRound";
+import { useRouter } from "next/navigation";
 
-export const BracketGame = ({ data }) => {
+export const BracketGame = ({ data, title }) => {
   const [val, setval] = useState(data);
   const [Round, setRound] = useState(1);
   const [Number, setNumber] = useState(0);
   const [Winner, setWinner] = useState([]);
+
+  const router = useRouter();
   console.log(Winner);
   const NextRound = () => {
     setNumber(0);
@@ -15,8 +18,7 @@ export const BracketGame = ({ data }) => {
     setval(Winner);
 
     if (Winner.length == 1) {
-      setRound("Winner");
-      return <div>Winner : {Winner}</div>;
+      router.push(`/winner?id=${Winner}&title=${title}`);
     }
   };
   return (

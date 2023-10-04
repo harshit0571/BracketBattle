@@ -1,6 +1,7 @@
 import BracketValue from "./BracketValue";
 
 const GameRound = ({ first, second, setWinner, setNumber, Number }) => {
+  
   return (
     <div className="w-full flex justify-center ">
       <div className="flex justify-around w-[80%] items-center">
