@@ -32,11 +32,11 @@ const BracketPage = () => {
       </div>
 
       {Game ? (
-        <div className="flex flex-col justify-start items-center w-full overflow-auto scroll-m-0 md:w-[98%] gap-5">
+        <div className="flex flex-col justify-start items-center w-full  md:w-[98%] gap-5">
           <BracketGame data={values} title={title} />
         </div>
       ) : (
-        <div className="flex flex-col  h-[700px] w-full overflow-auto scroll-m-0 md:w-[98%] gap-5">
+        <div className="flex flex-col scrollbar h-[700px] w-full overflow-y-auto overflow-x-hidden  scroll-m-0 md:w-[98%] gap-5">
           {array.map((node) => {
             return node;
           })}

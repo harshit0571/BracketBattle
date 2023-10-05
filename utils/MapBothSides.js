@@ -6,25 +6,21 @@ const Component = ({ one, two, three, four }) => {
     "bg-yellow-500",
     "bg-green-500",
     "bg-blue-500",
-    "bg-indigo-500",
+
     "bg-purple-500",
-    "bg-pink-500",
-    "bg-teal-500",
+
     "bg-orange-500",
-    "bg-cyan-500",
-    "bg-lime-500",
-    "bg-fuchsia-500",
   ];
 
   return (
     <div className="w-full flex justify-between items-center p-5">
       <div className="flex flex-col w-full ">
-        <BracketValue value={one} bg={bg[Math.floor(Math.random() * 11)]} />
-        <BracketValue value={two} bg={bg[Math.floor(Math.random() * 11)]} />
+        <BracketValue value={one} bg={bg[Math.floor(Math.random() * 5)]} />
+        <BracketValue value={two} bg={bg[Math.floor(Math.random() * 5)]} />
       </div>
       <div className="flex flex-col">
-        <BracketValue value={three} bg={bg[Math.floor(Math.random() * 11)]} />
-        <BracketValue value={four} bg={bg[Math.floor(Math.random() * 11)]} />
+        <BracketValue value={three} bg={bg[Math.floor(Math.random() * 5)]} />
+        <BracketValue value={four} bg={bg[Math.floor(Math.random() * 5)]} />
       </div>
     </div>
   );
