@@ -23,11 +23,11 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col gap-10 justify-center items-center w-full h-full">
-      <h1 className="text-7xl font-bold text-center text-blue-600 mt-8">
+    <main className="flex area flex-col gap-10 justify-center items-center w-full h-full">
+      <h1 className="text-7xl z-20 font-bold text-center bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent  mt-8">
         Bracket Battle
       </h1>
-      <div className="flex w-full flex-col md:flex-row justify-center items-center gap-5">
+      <div className=" z-20 flex w-full flex-col md:flex-row justify-center items-center gap-5">
         <input
           type="text"
           className="w-[80%] md:w-[60%] first-letter: px-5 py-3 rounded-md border-2 border-green-400"
@@ -41,8 +41,8 @@ export default function Home() {
           Start
         </button>
       </div>
-      <div className="flex justify-center gap-2 items-center flex-col">
-        <h2 className="text-xl">Choose number of rounds:</h2>
+      <div className="z-20 flex justify-center gap-2 items-center flex-col">
+        <h2 className="text-xl text-white">Choose number of rounds:</h2>
         <div class="w-64 mx-auto">
           <select
             id="dropdown"
@@ -57,6 +57,20 @@ export default function Home() {
           </select>
         </div>
       </div>
+
+      {/* //animation */}
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </main>
   );
 }

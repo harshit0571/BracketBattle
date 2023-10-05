@@ -22,8 +22,8 @@ export const BracketGame = ({ data, title }) => {
     }
   };
   return (
-    <div className="w-full flex flex-col gap-20">
-      <h1 className="text-center text-5xl">Round {Round}</h1>
+    <div className="w-full flex text-white flex-col gap-20">
+      <h1 className="text-center text-5xl text-white">Round {Round}</h1>
       {Number < val.length ? (
         <GameRound
           first={val[Number]}
@@ -31,6 +31,7 @@ export const BracketGame = ({ data, title }) => {
           setWinner={setWinner}
           setNumber={setNumber}
           Number={Number}
+          Round={Round}
         />
       ) : (
         NextRound()
