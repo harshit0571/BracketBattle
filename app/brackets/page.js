@@ -43,12 +43,12 @@ const BracketPage = () => {
         </div>
       )}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md md:mt-2"
+        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md md:mt-2"
         onClick={() => {
           setGame(!Game);
         }}
       >
-        Start
+        {Game ? "Restart" : "Start"}
       </button>
     </div>
   );

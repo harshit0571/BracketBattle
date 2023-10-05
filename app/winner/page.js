@@ -1,16 +1,31 @@
 "use client";
 import { useParams, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Confetti from "react-confetti";
 
 const page = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+  const updateScreenSize = () => {
+    setScreenWidth(window.innerWidth);
+    setScreenHeight(window.innerHeight);
+  };
   const id = useSearchParams().get("id");
   const title = useSearchParams().get("title");
   console.log(title);
   return (
-    <div className="flex justify-center mt-20 gap-10 items-center flex-col">
-      <h1 className="text-5xl">{title}</h1>
+    <div className="flex justify-center bg-gradient-to-br from-neutral-800 via-black to-indigo-900 h-full overflow-x-hidden gap-10 items-center flex-col text-white">
+      <div className="text-container">
+        <h1 className="md:text-8xl text-4xl">{title}</h1>
+      </div>
+
       <div className="text-2xl">Winner: {id}</div>
-      <Confetti numberOfPieces={150} width={3000} height={200} />
+      <Confetti
+        numberOfPieces={150}
+        width={screenWidth}
+        height={screenHeight}
+      />
 
       <div>
         <button className="bg-blue-400 text-white py-2 px-6">Share</button>
