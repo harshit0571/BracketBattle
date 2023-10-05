@@ -1,16 +1,24 @@
 "use client";
 import { useParams, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 
 const page = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const [screenWidth, setScreenWidth] = useState(0);
+  const [screenHeight, setScreenHeight] = useState(0);
 
   const updateScreenSize = () => {
     setScreenWidth(window.innerWidth);
     setScreenHeight(window.innerHeight);
   };
+
+  useEffect(() => {
+    // component is mounted and window is available
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    // unsubscribe from the event on component unmount
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
   const id = useSearchParams().get("id");
   const title = useSearchParams().get("title");
   console.log(title);
