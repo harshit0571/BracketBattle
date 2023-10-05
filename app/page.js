@@ -23,10 +23,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex area flex-col gap-10 justify-center items-center w-full h-full">
-      <h1 className="text-7xl z-20 font-bold text-center bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent  mt-8">
-        Bracket Battle
-      </h1>
+    <main className="flex background flex-col gap-10 justify-center items-center w-full h-full">
+      <div className="">
+        <h1 className="text-7xl z-20 font-bold text-center bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent  mt-8">
+          Bracket Battle
+        </h1>
+      </div>
+
       <div className=" z-20 flex w-full flex-col md:flex-row justify-center items-center gap-5">
         <input
           type="text"
@@ -57,20 +60,12 @@ export default function Home() {
           </select>
         </div>
       </div>
-
-      {/* //animation */}
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      {/* animation */}
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
     </main>
   );
 }

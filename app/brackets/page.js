@@ -21,7 +21,7 @@ const BracketPage = () => {
   console.log(values, firstHalf, secondHalf);
 
   return (
-    <div className="w-full pb-20 font-sans h-full gap-20 items-center flex flex-col bg-gradient-to-br from-neutral-800 via-black to-indigo-900 ">
+    <div className="w-full pb-20 pt-5 background font-sans h-full gap-20 items-center flex flex-col bg-gradient-to-br from-neutral-800 via-black to-indigo-900 ">
       <div>
         <h1 className="md:text-6xl text-3xl p-2 font-bold text-center bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent ">
           {title} Bracket
@@ -30,7 +30,6 @@ const BracketPage = () => {
           bracket-battle.com
         </p>
       </div>
-
       {Game ? (
         <div className="flex flex-col justify-start items-center w-full  md:w-[98%] gap-5">
           <BracketGame data={values} title={title} />
@@ -43,7 +42,7 @@ const BracketPage = () => {
         </div>
       )}
       <button
-        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md md:mt-2"
+        className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md "
         onClick={() => {
           setGame(!Game);
         }}

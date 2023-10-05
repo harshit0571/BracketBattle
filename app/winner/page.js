@@ -15,7 +15,7 @@ const page = () => {
   const title = useSearchParams().get("title");
   console.log(title);
   return (
-    <div className="flex justify-center bg-gradient-to-br from-neutral-800 via-black to-indigo-900 h-full overflow-x-hidden gap-10 items-center flex-col text-white">
+    <div className="flex justify-center bg-gradient-to-br from-neutral-800 via-black to-indigo-900 h-full p-2 overflow-x-hidden gap-10 items-center flex-col text-white">
       <div className="text-container">
         <h1 className="md:text-8xl text-4xl">{title}</h1>
       </div>
