@@ -13,8 +13,8 @@ const Component = ({ one, two, three, four }) => {
   ];
 
   return (
-    <div className="w-full flex justify-between items-center p-5">
-      <div className="flex flex-col w-full ">
+    <div className="w-full flex justify-between items-center p-10">
+      <div className="flex flex-col w-full p-5">
         <BracketValue value={one} bg={bg[Math.floor(Math.random() * 5)]} />
         <BracketValue value={two} bg={bg[Math.floor(Math.random() * 5)]} />
       </div>
