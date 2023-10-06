@@ -3,7 +3,7 @@ import { useState } from "react";
 import GameRound from "./GameRound";
 import { useRouter } from "next/navigation";
 
-export const BracketGame = ({ data, title }) => {
+export const BracketGame = ({ data, title, path }) => {
   const [val, setval] = useState(data);
   const [Round, setRound] = useState(1);
   const [Number, setNumber] = useState(0);
@@ -18,7 +18,7 @@ export const BracketGame = ({ data, title }) => {
     setval(Winner);
 
     if (Winner.length == 1) {
-      router.push(`/winner?id=${Winner}&title=${title}`);
+      router.push(`/winner?id=${Winner}&title=${title}&path=${path}`);
     }
   };
   return (

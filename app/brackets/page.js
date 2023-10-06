@@ -3,11 +3,16 @@ import BracketValue from "@/components/BracketValue";
 import { BracketGame } from "@/components/Game";
 import MapBothSides from "@/utils/MapBothSides";
 import splitArrayInHalf from "@/utils/SplitArrayInHalf";
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const BracketPage = () => {
   const searchParams = useSearchParams();
+  const [path, setpath] = useState("");
+  useEffect(() => {
+    setpath(window.location.href);
+  }, []);
+  console.log(path);
 
   const [Game, setGame] = useState(false);
   const search = searchParams.get("data");
@@ -32,7 +37,7 @@ const BracketPage = () => {
       </div>
       {Game ? (
         <div className="flex flex-col justify-start items-center w-full  md:w-[98%] gap-5">
-          <BracketGame data={values} title={title} />
+          <BracketGame data={values} title={title} path={path} />
         </div>
       ) : (
         <div className="flex flex-col scrollbar h-[700px] w-full overflow-y-auto overflow-x-hidden  scroll-m-0 md:w-[98%] gap-5">
