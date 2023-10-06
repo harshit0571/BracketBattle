@@ -2,6 +2,7 @@
 import Popup from "@/components/Popup";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 
@@ -24,6 +25,7 @@ const page = () => {
   const id = useSearchParams().get("id");
   const title = useSearchParams().get("title");
   const path = useSearchParams().get("path");
+  const Router = useRouter();
   console.log(title);
   return (
     <div className="flex justify-center bg-gradient-to-br from-neutral-800 via-black to-indigo-900 h-full min-h-screen p-2 overflow-x-hidden gap-10 items-center flex-col text-white">
@@ -39,9 +41,18 @@ const page = () => {
       />
       <div className="flex flex-col gap-5">
         <button
+          className="bg-green-400 text-white py-2 px-6"
+          onClick={() => {
+            Router.push(path);
+          }}
+        >
+          Play Again
+        </button>
+        <button
           className="bg-blue-400 text-white py-2 px-6"
           onClick={() => {
             navigator.clipboard.writeText(path);
+            alert("copied");
           }}
         >
           Share
