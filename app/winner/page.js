@@ -6,9 +6,16 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 
+const Loader = () => (
+  <div className="loader z-50 flex flex-col items-center gap-4">
+    <div class="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin "></div>
+  </div>
+);
+
 const page = () => {
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
+  const [loading, setLoading] = useState(false); // State for loader
 
   const updateScreenSize = () => {
     setScreenWidth(window.innerWidth);
@@ -30,7 +37,11 @@ const page = () => {
   return (
     <div className="flex justify-center bg-gradient-to-br from-neutral-800 via-black to-indigo-900 h-full min-h-screen p-2 overflow-x-hidden gap-10 items-center flex-col text-white">
       <div className="text-container">
-        <h1 className="md:text-8xl text-4xl">{title}</h1>
+        {loading ? (
+          <Loader />
+        ) : (
+          <h1 className="md:text-8xl text-4xl">{title}</h1>
+        )}
       </div>
 
       <div className="text-2xl">Winner: {id}</div>

@@ -4,14 +4,26 @@ import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 
+const Loader = () => (
+  <div className="loader z-50 flex flex-col items-center gap-4">
+    <h1 className="text-blue-500 text-3xl">
+      Please Wait While We Load Your Game
+    </h1>
+    <div class="rounded-md h-12 w-12 border-4 border-t-4 border-blue-500 animate-spin "></div>
+  </div>
+);
+
 export default function Home() {
   const router = useRouter();
   const [Title, setTitle] = useState("");
   const [Rounds, setRounds] = useState("four");
+  const [loading, setLoading] = useState(false); // State for loader
+
   console.log(Title);
   console.log(Rounds);
 
   const getBrackets = async () => {
+    setLoading(true);
     const body = { prompt: Title, number: Rounds };
     const response = await axios.post("api/createBracket", body);
     console.log(response);
@@ -24,6 +36,7 @@ export default function Home() {
 
   return (
     <main className="flex background flex-col gap-10 justify-center items-center w-full h-full">
+      {loading && <Loader />}
       <div className="">
         <h1 className="text-7xl z-20 font-bold text-center bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent  mt-8">
           Bracket Battle
