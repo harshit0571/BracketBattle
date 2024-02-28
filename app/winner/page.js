@@ -16,6 +16,14 @@ const page = () => {
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
   const [loading, setLoading] = useState(false); // State for loader
+  const [alertBtn, setalertBtn] = useState(false);
+
+  const alert = () => {
+    setalertBtn(true);
+    setTimeout(() => {
+      setalertBtn(false);
+    }, 1000);
+  };
 
   const updateScreenSize = () => {
     setScreenWidth(window.innerWidth);
@@ -59,15 +67,20 @@ const page = () => {
         >
           Play Again
         </button>
-        <button
-          className="bg-blue-400 text-white py-2 px-6"
-          onClick={() => {
-            navigator.clipboard.writeText(path);
-            alert("copied");
-          }}
-        >
-          Share
-        </button>
+        {alertBtn ? (
+          <button className="bg-green-400 text-white py-2 px-6">Copied</button>
+        ) : (
+          <button
+            className="bg-blue-400 text-white py-2 px-6"
+            onClick={() => {
+              navigator.clipboard.writeText(path);
+              alert();
+            }}
+          >
+            Share
+          </button>
+        )}
+
         <button className="bg-red-400 text-white py-2 px-6">
           <Link href="/">Go back</Link>
         </button>
